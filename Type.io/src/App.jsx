@@ -13,7 +13,7 @@ export default function App() {
         {/* Sidebar controls mode switching */}
         < Sidebar setActiveMode={setActiveMode} />
 
-        <div className="flex-1 p-4">
+        <div className="flex-1">
           {activeMode === "infinite" && <InfiniteMode />}
           {activeMode === "az" && <AZMode />}
           {activeMode === "calculator" && <CalculatorMode />}
