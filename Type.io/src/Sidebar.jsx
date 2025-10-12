@@ -1,24 +1,24 @@
 export default function Sidebar({ setActiveMode }) {
   return (
-    <div className="w-48 h-screen bg-gray-800 text-white flex flex-col p-4">
-      <h1 className="text-xl font-bold mb-6">TypeSpeed</h1>
+    <div className="w-[300px] h-screen flex items-center flex-col p-4 bg-[#010409]">
+      <h1 className="text-3xl font-bold text-[#F0F6FC] pt-9.5 pb-9.5">Type.io</h1>
 
       <button 
-        className="mb-2 p-2 bg-gray-700 hover:bg-gray-600 rounded"
+        className="bg-[#0D1117] text-[#F0F6FC] min-w-full p-3 border rounded-lg border-[#3D444D] my-2"
         onClick={() => setActiveMode("infinite")}
       >
         Infinite Mode
       </button>
 
       <button 
-        className="mb-2 p-2 bg-gray-700 hover:bg-gray-600 rounded"
+        className="bg-[#0D1117] text-[#F0F6FC] min-w-full p-3 border rounded-lg border-[#3D444D] my-2"
         onClick={() => setActiveMode("az")}
       >
         A-Z Mode
       </button>
 
       <button 
-        className="p-2 bg-gray-700 hover:bg-gray-600 rounded"
+        className="bg-[#0D1117] text-[#F0F6FC] min-w-full p-3 border rounded-lg border-[#3D444D] my-2"
         onClick={() => setActiveMode("calculator")}
       >
         Calculator Mode
