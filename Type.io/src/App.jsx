@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 import InfiniteMode from "./Infinite";
-import AZMode from "./AZ";
 import CalculatorMode from "./Calculator";
 
 export default function App() {
@@ -15,7 +14,6 @@ export default function App() {
 
         <div className="flex-1">
           {activeMode === "infinite" && <InfiniteMode />}
-          {activeMode === "az" && <AZMode />}
           {activeMode === "calculator" && <CalculatorMode />}
         </div>
       </div>
