@@ -23,11 +23,12 @@ export default function Infinite() {
   return (
     <>
       <div className="h-screen bg-[#010409] text-white p-4 m-0 flex justify-around flex-col items-center">
-          <div className="calculator border-[#3D444D]  bg-[#eef5fc27] w-full h-15 rounded-lg border-1 ">
-
+          <div className="calculator text-xl  border-[#F0F6FC]/20 p-8 flex justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
+            <p className="typo text-white">Typo : 0</p>
+            <p className="wpm text-white ">WPM : 0</p>
           </div>
           <div className="paragraph flex shadow-lg justify-center box-border  p-10 bg-[#F0F6FC]/10 backdrop-blur-md w-full h-100 border-[#F0F6FC]/20 rounded-lg border-1 ">
-            <p className="txt p-10 text-center text-xl w-200 h-60 overflow-x-hidden overflow-y-hidden gap-0.5  ">
+            <p className="txt p-10 text-center text-xl w-200 h-60 overflow-x-hidden overflow-y-hidden gap-0.5">
               {displayText}
             </p>
           </div>
