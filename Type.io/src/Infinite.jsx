@@ -1,16 +1,35 @@
+import { useEffect, useState } from "react";
+
 export default function Infinite() {
+  const words ="Jack quickly amazed five bright wizards vexing lazy dogs near the frozen quarryThe quirky fox jumped over six dazzling wizards before night froze six quick gnomes bright lanterns flickered quietly Jovial kings played quirky music before vexed zebras danced around the fire Twelve amazing foxes quickly jumped behind the frozen quartz hill Bright quartz gems flicker when joyful wizards mix their potions at dawn Lazy dogs were puzzled as five quirky zebras jumped over the frozen hedge Wizards quickly jump from blazing quartz hills to vex lazy foxes near dawn".split(' ');
+  
+  const [displayText , setDisplayText] = useState('');
+  const wordsCount = words.length;
+  
+  function randomWord(){
+    const randomIndex = Math.floor(Math.random() *wordsCount);
+    return words[randomIndex];
+  }
+  function newGame(){
+    let text = '';
+    for (let i=0 ;i< 200 ;i++){
+      text += randomWord() + ' ';
+    }
+    setDisplayText(text.trim());
+  }
+  useEffect(() => {
+    newGame();
+  }, []);
   return (
     <>
       <div className="h-screen bg-[#010409] text-white p-4 m-0 flex justify-around flex-col items-center">
           <div className="calculator border-[#3D444D]  bg-[#eef5fc27] w-full h-15 rounded-lg border-1 ">
 
           </div>
-          <div className="paragraph flex justify-center items-center bg-[#eef5fc27] w-full h-100 border-[#3D444D] rounded-lg border-1 ">
-            <p className="text-center text-lg w-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officia animi doloremque molestias, quae incidunt. Atque recusandae culpa iste excepturi dignissimos ipsa molestias deleniti est labore. Distinctio fugiat ab similique?
-            Odio odit eligendi commodi impedit itaque sed libero atque, fugiat deserunt laboriosam sequi numquam repellendus maxime reiciendis sunt. Mollitia deserunt dicta, nemo enim non explicabo error sint optio minima modi.
-            Delectus adipisci consequuntur eius et odit illo accusantium aspernatur earum exercitationem cum autem ipsum perspiciatis eveniet minima tempora magnam reprehenderit incidunt accusamus, aperiam minus repellat? Recusandae laudantium exercitationem dolor voluptate.
-            Non optio hic architecto autem, deserunt culpa. Sint, ipsum porro! Commodi debitis id culpa quod facere! Mollitia, perspiciatis! Placeat debitis dolore praesentium animi exercitationem. Eius et cum debitis ullam itaque!
-            Cum, aliquam. Cupiditate architecto odit mollitia doloremque sunt accusantium culpa officia, aut labore exercitationem consequuntur facere quos quidem, vitae dignissimos dolore. Fugit tenetur consectetur voluptate sit ipsam. Optio, consequatur vero!</p>
+          <div className="paragraph flex shadow-lg justify-center box-border  p-10 bg-[#F0F6FC]/10 backdrop-blur-md w-full h-100 border-[#F0F6FC]/20 rounded-lg border-1 ">
+            <p className="txt p-10 text-center text-xl w-200 h-60 overflow-x-hidden overflow-y-hidden gap-0.5  ">
+              {displayText}
+            </p>
           </div>
       </div>
     </>
