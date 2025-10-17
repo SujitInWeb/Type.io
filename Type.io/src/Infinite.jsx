@@ -11,6 +11,7 @@ export default function Infinite() {
 
   const wordsCount = words.length;
   
+  
   function randomWord(){
     const randomIndex = Math.floor(Math.random() *wordsCount);
     return words[randomIndex];
