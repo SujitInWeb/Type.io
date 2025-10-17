@@ -28,7 +28,7 @@ export default function Infinite() {
             <p className="wpm text-white ">WPM : 0</p>
           </div>
           <div className="paragraph flex shadow-lg justify-center box-border  p-10 bg-[#F0F6FC]/10 backdrop-blur-md w-full h-100 border-[#F0F6FC]/20 rounded-lg border-1 ">
-            <p className="txt p-10 text-center text-xl w-200 h-60 overflow-x-hidden overflow-y-hidden gap-0.5">
+            <p className="txt p-10 font-[Electrolize] text-center text-2xl w-190 h-60 overflow-x-hidden overflow-y-hidden gap-0.5">
               {displayText}
             </p>
           </div>
