@@ -58,7 +58,7 @@ export default function Infinite() {
         if(mistakes.has(index)){
           className += ' text-[#B62324]';
         }else{
-          className += ' text-[#29903B]';
+          className += ' text-[#666666]';
         }
       }else if(index === currentIndex){
         className += ' bg-[#053aa5] text-white';
@@ -75,14 +75,16 @@ export default function Infinite() {
   }
   return (
     <>
-      <div className="h-screen bg-[#010409] text-white p-4 m-0 flex justify-around flex-col items-center">
-          <div className="calculator text-xl  border-[#F0F6FC]/20 p-8 flex justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
+      <div className="h-screen bg-[#000000] text-white p-4 m-0 flex justify-around flex-col items-center">
+          <div className="calculator text-xl  border-[#F0F6FC]/20 p-8 shadow-xl shadow-[#181919] flex justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
             <p className="typo text-white">Typo : {typoCount}</p>
+            <button onClick={newGame} className="px-3.5 text-[#000] py-2 bg-white/50 hover:bg-white/80 rounded-lg" >Restart</button>
           </div>
-          <div className="paragraph flex shadow-lg justify-center box-border  p-10 bg-[#F0F6FC]/10 backdrop-blur-md w-full h-100 border-[#F0F6FC]/20 rounded-lg border-1 ">
-            <p ref={textRef} className="txt p-10 font-[Electrolize] text-center text-2xl w-190 h-60 overflow-x-hidden overflow-y-hidden gap-0.5">
+          <div className="paragraph relative flex justify-center  p-10  w-full  rounded-lg  ">
+            <p ref={textRef} className="txt relative z-0  p-10 font-[Electrolize] text-center text-2xl w-190 h-80 overflow-x-hidden overflow-y-hidden ">
               {renderText()}
             </p>
+            <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
           </div>
       </div>
     </>
