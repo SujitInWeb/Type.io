@@ -7,6 +7,7 @@ export default function Infinite() {
   const [displayText , setDisplayText] = useState('');
   const [currentIndex , setCurrentIndex] =useState(0);
   const [typoCount,setTypoCount] = useState(0);
+  const [mistakes, setMistakes] = useState(new Set());
   const textRef = useRef(null);
 
   const wordsCount = words.length;
@@ -40,12 +41,9 @@ export default function Infinite() {
       if(e.key === expectedChar){
         setCurrentIndex(prev => prev+1);
       }
-      else if(e.key != expectedChar){
-        setTypoCount(prev =>prev +1);
-        setCurrentIndex(prev =>prev +1);
-        className = ' text-red-400';
-      }
       else{
+        setMistakes(prev => new Set([...prev,currentIndex]));
+        setTypoCount(prev =>prev +1);
         setCurrentIndex(prev =>prev +1);
       }
     }
@@ -57,7 +55,11 @@ export default function Infinite() {
     return displayText.split('').map((char,index) =>{
       let className = 'char'
       if(index < currentIndex){
-        className += ' text-green-400';
+        if(mistakes.has(index)){
+          className += ' text-[#B62324]';
+        }else{
+          className += ' text-[#29903B]';
+        }
       }else if(index === currentIndex){
         className += ' bg-[#053aa5] text-white';
       }
