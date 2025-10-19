@@ -10,7 +10,7 @@ export default function App() {
     <>
       <div className="flex">
         {/* Sidebar controls mode switching */}
-        < Sidebar setActiveMode={setActiveMode} />
+        <Sidebar setActiveMode={setActiveMode} />
 
         <div className="flex-1">
           {activeMode === "infinite" && <InfiniteMode />}
