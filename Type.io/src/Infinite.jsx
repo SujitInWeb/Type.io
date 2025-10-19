@@ -25,6 +25,7 @@ export default function Infinite() {
     setDisplayText(text.trim());
     setCurrentIndex(0);
     setTypoCount(0);
+    setMistakes(new Set());
   }
 
   useEffect(() => {
