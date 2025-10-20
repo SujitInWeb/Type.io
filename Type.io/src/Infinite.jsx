@@ -88,7 +88,7 @@ export default function Infinite() {
           className += ' text-[#666666]';
         }
       }else if(index === currentIndex){
-        className += ' bg-[#053aa5] text-white';
+        className += ' bg-[#fff] text-black';
       }
       else{
         className +=' text-white';
@@ -105,7 +105,7 @@ export default function Infinite() {
       <div className="h-screen bg-[#000000] text-white p-4 m-0 flex justify-around flex-col items-center">
           <div className="calculator text-xl  border-[#F0F6FC]/20 p-8 shadow-xl shadow-[#181919] flex justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
             <p className="typo text-white">Typo : {typoCount}</p>
-            <button onClick={newGame} className="px-3.5 text-[#000] py-2 bg-white/50 hover:bg-white/80 rounded-lg cursor-pointer transition duration-280" >Restart</button>
+            <button onClick={newGame} className="px-3.5 text-[#000] py-2 text-lg bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
           <div className="paragraph relative flex justify-center  p-10  w-full  rounded-lg  ">
             <p ref={textRef} className="txt relative z-0  p-10 font-[Electrolize] text-center text-2xl w-190 h-80 overflow-x-hidden overflow-y-auto ">
