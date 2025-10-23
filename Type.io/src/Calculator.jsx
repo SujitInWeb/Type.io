@@ -8,6 +8,11 @@ export default function Calculator() {
     const [typoCount,setTypoCount] = useState(0);
     const [mistakes, setMistakes] = useState(new Set());
     const textRef = useRef(null);
+    const [startTime , setStartTime] = useState(null);
+    const [elapsedTime , setElapsedTime] =useState(0);
+    const [timerRunning , setTimerRunning] =useState(false);
+    const [wpm,setwpm] = useState(0);
+    const [gameEnded,setGameEnded] =useState(false);
   
     const wordsCount = words.length;
 
