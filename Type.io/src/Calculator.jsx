@@ -16,6 +16,17 @@ export default function Calculator() {
   
     const wordsCount = words.length;
 
+
+    useEffect(() => {
+      let interval;
+      if (timerRunning && !gameEnded) {
+        interval = setInterval (() => {
+          setElapsedTime(Math.floor((Date.now() - startTime)/1000));
+        }, 100);
+      }
+      return () => clearInterval(interval);
+    }, [timerRunning, startTime, gameEnded]);
+
     function randomWord(){
         const randomIndex = Math.floor(Math.random() *wordsCount);
         return words[randomIndex];
@@ -65,9 +76,14 @@ export default function Calculator() {
       useEffect(() => {
         function handlekeypress(e){
           if(e.key.length > 1) return;
-    
+          
           const expectedChar = displayText[currentIndex];
-    
+          
+          if(!timerRunning && currentIndex === 0) {
+            setStartTime(Date.now());
+            setTimerRunning(true);
+          }
+
           if(e.key === expectedChar){
             setCurrentIndex(prev => prev+1);
           }
@@ -80,7 +96,9 @@ export default function Calculator() {
         window.addEventListener('keydown',handlekeypress);
         return () => window.removeEventListener('keydown',handlekeypress);
       },[currentIndex,displayText]);
-    
+      
+      
+
       const renderText = () => {
         return displayText.split('').map((char,index) =>{
           let className = 'char'
@@ -108,6 +126,10 @@ export default function Calculator() {
       <div className="h-screen bg-[#000000] text-white p-4 m-0 flex justify-around flex-col items-center">
           <div className="calculator text-xl  border-[#F0F6FC]/20 p-8 shadow-xl shadow-[#181919] flex justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
             <p className="typo text-white">Typo : {typoCount}</p>
+            <div className="flex gap-6 items-center">
+              <p className="text-white">Time : {elapsedTime}s</p>
+              {gameEnded && <p className="">WPM : {wpm}</p>}
+            </div>
             <button onClick={newGame} className="px-3.5 text-[#000] py-2 text-lg bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
           <div className="paragraph relative flex justify-center  p-10  w-full  rounded-lg  ">
