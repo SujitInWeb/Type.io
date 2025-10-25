@@ -8,7 +8,7 @@ export default function Calculator() {
     const [typoCount,setTypoCount] = useState(0);
     const [mistakes, setMistakes] = useState(new Set());
     const textRef = useRef(null);
-    const [startTime , setStartTime] = useState(null);
+    const [startTime , setStartTime] = useState(30);
     const [elapsedTime , setElapsedTime] =useState(0);
     const [timerRunning , setTimerRunning] =useState(false);
     const [wpm,setwpm] = useState(0);
@@ -21,8 +21,15 @@ export default function Calculator() {
       let interval;
       if (timerRunning && !gameEnded) {
         interval = setInterval (() => {
-          setElapsedTime(Math.floor((Date.now() - startTime)/1000));
-        }, 100);
+          setTimeLeft(prev => {
+            if (prev <= 1){
+              setTimerRunning(false);
+              setGameEnded(true);
+              return 0;
+            }
+            return prev - 1 ;
+          });
+        }, 1000);
       }
       return () => clearInterval(interval);
     }, [timerRunning, startTime, gameEnded]);
@@ -40,6 +47,11 @@ export default function Calculator() {
         setCurrentIndex(0);
         setTypoCount(0);
         setMistakes(new Set());
+        setStartTime(null);
+        setElapsedTime(0);
+        setTimerRunning(false);
+        setwpm(0);
+        setGameEnded(false);
     
         if(textRef.current) {
           textRef.current.scrollTop = 0;
@@ -97,7 +109,17 @@ export default function Calculator() {
         return () => window.removeEventListener('keydown',handlekeypress);
       },[currentIndex,displayText]);
       
-      
+      useEffect( () => {
+        if (currentIndex >= displayText.length && displayText.length > 0 && timerRunning){
+          setTimerRunning(false);
+          setGameEnded(true);
+
+          const timeInMinutes = 30 / 60;
+          const wordsTyped = displayeText.split(' ').length;
+          const calculatedWpm = Math.round(wordsTyped / timeInMinutes);
+          setwpm(calculatedWpm);
+        }
+      }, [currentIndex, displayText.length , timerRunning , elapsedTime]);
 
       const renderText = () => {
         return displayText.split('').map((char,index) =>{
