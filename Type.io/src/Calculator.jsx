@@ -49,8 +49,6 @@ export default function Calculator() {
       useEffect(() => {
         newGame();
       }, []);
-    
-    
       useEffect( () => {
         if(textRef.current){
           const container = textRef.current;

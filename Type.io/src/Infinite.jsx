@@ -16,6 +16,7 @@ export default function Infinite() {
     const randomIndex = Math.floor(Math.random() *wordsCount);
     return words[randomIndex];
   }
+  // this function is used to restart the game to its initial stage
   function newGame(){
     let text = '';
     for (let i=0 ;i< 200 ;i++){
