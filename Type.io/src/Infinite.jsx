@@ -61,7 +61,7 @@ export default function Infinite() {
 
   useEffect(() => {
     function handlekeypress(e){
-      if(e.key.length > 1) return;
+      if(e.key.length > 1 && e.key !== ' ') return;
 
       const expectedChar = displayText[currentIndex];
 
@@ -74,8 +74,8 @@ export default function Infinite() {
         setCurrentIndex(prev =>prev +1);
       }
     }
-    window.addEventListener('keydown',handlekeypress);
-    return () => window.removeEventListener('keydown',handlekeypress);
+    window.addEventListener('keypress',handlekeypress);
+    return () => window.removeEventListener('keypress',handlekeypress);
   },[currentIndex,displayText]);
 
   const renderText = () => {
@@ -116,4 +116,5 @@ export default function Infinite() {
       </div>
     </>
     );
+
 }
