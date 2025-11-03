@@ -31,7 +31,7 @@ export default function Calculator() {
     setCurrentIndex(0);
     setTypoCount(0);
     setMistakes(new Set());
-    setTimer(30);
+    setTimeLeft(30);
     setIsGameActive(false);
     setIsGameOver(false);
     setWpm(0);
@@ -46,10 +46,44 @@ export default function Calculator() {
   }
 
   useEffect(() => {
-
     newGame();
   }, []);
 
+  useEffect(() => {
+    if (isGameActive && timeLeft > 0){
+      timerRef.current = setInterval(() => {
+          setTimeLeft((prev) =>{
+          const newTime = prev - 1;
+          
+          const timeElapsed = 30 - newTime;
+          const minutes = timeElapsed / 60;
+          
+          const correctChars = displayText
+            .split('')
+            .slice(0, currentIndex)
+            .filter((_,i) => !mistakes.has(i)).length;
+
+          const correctWords = correctChars / 5;
+          
+          const calculateWpm = minutes > 0 ? Math.round(correctWords / minutes) : 0;
+          setWpm(calculateWpm); 
+
+          if(newTime <= 0 ){
+            clearInterval(timerRef.current);
+            setIsGameActive(false);
+            setIsGameOver(true);
+            return 0;
+          } 
+          return newTime;
+        });
+      }, 1000);
+    }
+    return () => {
+      if (timerRef.current){
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [isGameActive]);
 
   useEffect( () => {
     if(textRef.current){
@@ -76,6 +110,11 @@ export default function Calculator() {
   useEffect(() => {
     function handlekeypress(e){
       if(e.key.length > 1 && e.key !== ' ') return;
+      if(isGameOver) return;
+
+      if (!isGameActive) {
+        setIsGameActive(true);
+      }
 
       const expectedChar = displayText[currentIndex];
 
@@ -83,14 +122,14 @@ export default function Calculator() {
         setCurrentIndex(prev => prev+1);
       }
       else{
-        setMistakes(prev => new Set([...prev,currentIndex]));
+        setMistakes(prev => new Set([...prev, currentIndex]));
         setTypoCount(prev =>prev +1);
         setCurrentIndex(prev =>prev +1);
       }
     }
     window.addEventListener('keypress',handlekeypress);
     return () => window.removeEventListener('keypress',handlekeypress);
-  },[currentIndex,displayText]);
+  }, [currentIndex, displayText , isGameActive , isGameOver]);
 
   const renderText = () => {
     return displayText.split('').map((char,index) =>{
@@ -119,14 +158,29 @@ export default function Calculator() {
       <div className="h-screen bg-[#000000] text-white p-4 m-0 flex justify-around flex-col items-center">
           <div className="calculator text-xl  border-[#F0F6FC]/20 p-8 shadow-xl shadow-[#181919] flex justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
             <p className="typo text-white">Typo : {typoCount}</p>
+            <p className=" text-white text-2xl font-bold">Time: {timeLeft}s</p>
             <button onClick={newGame} className="px-3.5 text-[#000] py-2 text-lg bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
-          <div className="paragraph relative flex justify-center  p-10  w-full  rounded-lg  ">
-            <p ref={textRef} className="txt relative z-0  p-10 font-[Electrolize] text-center text-2xl w-190 h-80 overflow-x-hidden overflow-y-auto ">
-              {renderText()}
-            </p>
-            <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
-          </div>
+          {isGameOver ? (
+            <div className="flex flex-col items-center justify-center gap-6">
+              <h2 className="text-5xl font-bold text-white">Time's Up!</h2>
+              <div className="bg-gray-900 bg-opacity-50 backdrop-blur-md p-10 rounded-lg border border-gray-700">
+                <p className="text-6xl font-bold text-white mb-2">{wpm} WPM</p>
+                <p className="text-xl text-gray-400">Words Per Minute</p>
+                <p className="text-md text-gray-500 mt-4">Errors: {typoCount}</p>
+              </div>
+              <button onClick={newGame} className="px-6 py-3 text-xl bg-white bg-opacity-50 hover:bg-opacity-80 text-black rounded-lg cursor-pointer transition duration-300">
+                  Try Again
+              </button>
+            </div>
+          ) : (
+            <div className="paragraph relative flex justify-center  p-10  w-full  rounded-lg  ">
+              <p ref={textRef} className="txt relative z-0  p-10 font-[Electrolize] text-center text-2xl w-190 h-80 overflow-x-hidden overflow-y-auto ">
+                {renderText()}
+              </p>
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
+            </div>
+          )}
       </div>
     </>
     );
