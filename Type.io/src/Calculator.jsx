@@ -7,6 +7,11 @@ export default function Calculator() {
   const [currentIndex , setCurrentIndex] =useState(0);
   const [typoCount,setTypoCount] = useState(0);
   const [mistakes, setMistakes] = useState(new Set());
+  const [timeLeft, setTimeLeft]= useState(30);
+  const [isGameActive, setIsGameActive] = useState(false);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [wpm, setWpm] = useState(null);
+  const timerRef = useRef(null);
   const textRef = useRef(null);
 
   const wordsCount = words.length;
@@ -26,6 +31,14 @@ export default function Calculator() {
     setCurrentIndex(0);
     setTypoCount(0);
     setMistakes(new Set());
+    setTimer(30);
+    setIsGameActive(false);
+    setIsGameOver(false);
+    setWpm(0);
+
+    if(timerRef.current){
+      clearInterval(timerRef.current);
+    }
 
     if(textRef.current) {
       textRef.current.scrollTop = 0;
@@ -33,6 +46,7 @@ export default function Calculator() {
   }
 
   useEffect(() => {
+
     newGame();
   }, []);
 
