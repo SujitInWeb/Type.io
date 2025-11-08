@@ -8,7 +8,7 @@ export default function App() {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex ">
         {/* Sidebar controls mode switching */}
         <Sidebar setActiveMode={setActiveMode} />
 
