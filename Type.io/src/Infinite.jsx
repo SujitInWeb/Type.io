@@ -102,13 +102,13 @@ export default function Infinite() {
   }
   return (
     <>
-      <div className="h-screen bg-[#000000] text-white p-4 m-0 flex justify-around flex-col items-center">
-          <div className="calculator text-xl  border-[#F0F6FC]/20 p-8 shadow-xl shadow-[#181919] flex justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
+      <div className="h-screen bg-[#000000] w-full text-white p-4 m-0 flex justify-around flex-col items-center">
+          <div className="calculator text-xl  mt-15 border-[#F0F6FC]/20 p-8 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full h-15 rounded-lg border-1 ">
             <p className="typo text-white">Typo : {typoCount}</p>
             <button onClick={newGame} className="px-3.5 text-[#000] py-2 text-lg bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
-          <div className="paragraph relative flex justify-center  p-10  w-full  rounded-lg  ">
-            <p ref={textRef} className="txt relative z-0  p-10 font-[Electrolize] text-center text-2xl w-190 h-80 overflow-x-hidden overflow-y-auto ">
+          <div className="paragraph relative flex justify-center flex-wrap  p-10  w-full  rounded-lg  ">
+            <p ref={textRef} className="txt lg:text-lg relative z-0  p-10 font-[Electrolize] text-center text-2xl w-3/4 h-80 overflow-x-hidden overflow-y-auto ">
               {renderText()}
             </p>
             <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
@@ -116,5 +116,4 @@ export default function Infinite() {
       </div>
     </>
     );
-
 }
