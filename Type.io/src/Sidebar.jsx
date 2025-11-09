@@ -5,7 +5,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
       <div 
         className={`
           fixed lg:static
-          w-[280px] md:w-[250px] lg:w-[280px]
+          w-[240px] md:w-[250px] lg:w-[230px]
           h-screen 
           p-7 
           flex items-center flex-col 

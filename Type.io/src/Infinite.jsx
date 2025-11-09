@@ -108,7 +108,7 @@ export default function Infinite() {
             <button onClick={newGame} className="px-3.5 text-[#000] py-2 text-lg bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
           <div className="paragraph relative flex justify-center flex-wrap  p-10  w-full  rounded-lg  ">
-            <p ref={textRef} className="txt lg:text-lg relative z-0  p-10 font-[Electrolize] text-center text-2xl w-3/4 h-80 overflow-x-hidden overflow-y-auto ">
+            <p ref={textRef} className="txt lg:text-xl  relative z-0  p-10 font-[Electrolize] text-center text-2xl w-3/4  h-80 overflow-x-hidden overflow-y-auto ">
               {renderText()}
             </p>
             <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
