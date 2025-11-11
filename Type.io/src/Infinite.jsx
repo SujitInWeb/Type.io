@@ -11,7 +11,9 @@ export default function Infinite() {
 
   const wordsCount = words.length;
   
-  
+  const element = document.querySelector('.txt');
+
+
   function randomWord(){
     const randomIndex = Math.floor(Math.random() *wordsCount);
     return words[randomIndex];
@@ -104,8 +106,8 @@ export default function Infinite() {
     <>
       <div className="h-screen bg-[#000000] w-full text-white p-4 m-0 flex justify-around flex-col items-center">
           <div className="calculator  text-xl  mt-12 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border-1 ">
-            <p className="typo text-white">Typo : {typoCount}</p>
-            <button onClick={newGame} className="lg:px-3.5 px-2.5 py-1.5 text-lg text-[#000] lg:py-2 lg:text-lg bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
+            <p className="typo lg:text-lg md:text-xl text-sm text-white">Typo : {typoCount}</p>
+            <button onClick={newGame} className="lg:px-3.5 px-2.5 py-1.5 lg:text-lg md:text-xl text-sm text-[#000] lg:py-2  bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
           <div className="paragraph relative flex justify-center flex-wrap  lg:p-10  w-full  rounded-lg  ">
             <p ref={textRef} className="txt lg:text-2xl md:text-xl text-lg w-full md:w-3/4 xl:w-3/4 p-5 relative z-0 md:p-10 lg:p-10 font-[Electrolize] text-center lg:w-full  h-80 overflow-x-hidden overflow-y-auto ">

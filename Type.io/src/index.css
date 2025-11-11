@@ -6,4 +6,12 @@
 }
 .txt::-webkit-scrollbar {
   display: none; 
+  pointer-events: none;
+}
+
+.txt::-webkit-scrollbar-track {
+  pointer-events: none;
+}
+.txt::-webkit-scrollbar-thumb {
+  pointer-events: none;
 }

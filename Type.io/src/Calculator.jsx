@@ -18,6 +18,8 @@ export default function Calculator() {
 
   const wordsCount = words.length;
   
+
+
   
   function randomWord(){
     const randomIndex = Math.floor(Math.random() *wordsCount);
@@ -165,15 +167,15 @@ export default function Calculator() {
     <>
       <div className="h-screen bg-[#000000] text-white p-4 m-0 flex justify-around flex-col items-center">
           <div className="calculator  text-xl  mt-12 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border-1 ">
-            <p className="typo text-white">Typo : {typoCount}</p>
-            <p className=" text-white text-2xl font-[Roboto]">Time: {timeLeft}s</p>
-            <button onClick={newGame} className="px-3.5 text-[#000] py-2 text-lg bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
+            <p className="typo lg:text-lg md:text-xl text-sm text-white">Typo : {typoCount}</p>
+            <p className=" text-white lg:text-lg md:text-xl text-sm font-[Roboto]">Time: {timeLeft}s</p>
+            <button onClick={newGame} className="px-3.5 lg:text-lg md:text-xl text-sm text-[#000] py-2  bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
           {isGameOver ? (
-            <div className="relative flex justify-center items-center flex-col p-10  w-full  rounded-lg ">
-              <h2 className="text-5xl font-[Bungee_Spice] text-white">Time's Up!</h2>
+            <div className="relative flex justify-center items-center flex-col lg:p-10  w-full  rounded-lg ">
+              <h2 className="lg:text-5xl text-4xl font-[Bungee_Spice] text-white">Time's Up!</h2>
               <div className="relative z-0  p-10 font-[Electrolize] text-center text-2xl w-190 overflow-x-hidden overflow-y-auto">
-                <p className="text-6xl font-bold text-white mb-2">{wpm} WPM</p>
+                <p className="lg:text-6xl text-4xl font-bold text-white mb-2">{wpm} WPM</p>
                 <p className="text-xl text-gray-400">Words Per Minute</p>
                 <p className="text-md text-gray-500 mt-4">Errors: {typoCount}</p>
               </div>

@@ -35,7 +35,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
         </h1>
         
         <button 
-          className="bg-white/50 hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117] text-lg min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
+          className="bg-white/50 lg:text-lg md:text-xl text-sm hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117]  min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
           onClick={() => {
             setActiveMode("infinite");
             setIsOpen(false);
@@ -45,7 +45,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
         </button>
         
         <button 
-          className="bg-white/50 hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117] text-lg min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
+          className="bg-white/50 lg:text-lg md:text-xl text-sm hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117]  min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
           onClick={() => {
             setActiveMode("calculator");
             setIsOpen(false);
@@ -57,7 +57,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
         <div className="flex justify-center w-full mt-auto mb-4">
           <div 
             onClick={() => window.open("https://x.com/SujitInweb", "_blank")} 
-            className="h-12 w-12 p-1 mx-4 bg-amber-50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-amber-100 transition"
+            className="h-12 w-12 p-1 mx-4 bg-white/50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-white/80 transition"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -70,7 +70,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
           </div>
           <button 
             onClick={() => window.open("https://github.com/SujitInWeb/Type.io", "_blank")} 
-            className="h-12 w-12 p-1 mx-4 bg-amber-50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-amber-100 transition"
+            className="h-12 w-12 p-1 mx-4 bg-white/50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-white/80 transition"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
