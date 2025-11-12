@@ -35,7 +35,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
         </h1>
         
         <button 
-          className="bg-white/50 lg:text-lg md:text-xl text-sm hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117]  min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
+          className="bg-white/50 lg:text-lg md:text-lg text-sm hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117]  min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
           onClick={() => {
             setActiveMode("infinite");
             setIsOpen(false);
@@ -45,7 +45,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
         </button>
         
         <button 
-          className="bg-white/50 lg:text-lg md:text-xl text-sm hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117]  min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
+          className="bg-white/50 lg:text-lg md:text-lg text-sm hover:bg-white/80 font-[Roboto] font-normal text-[#0D1117]  min-w-full p-3 border rounded-lg border-[#3D444D] my-2 hover:border-[#3D444D] hover:text-[#0D1117] cursor-pointer transition duration-280"
           onClick={() => {
             setActiveMode("calculator");
             setIsOpen(false);
