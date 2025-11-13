@@ -40,7 +40,7 @@ export default function App() {
         {/* Overlay for mobile sidebar */}
         {isSidebarOpen && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+            className="fixed inset-0 bg-black/20 bg-opacity-30 backdrop-blur-lg shadow-lg z-30 lg:hidden"
             onClick={() => setIsSidebarOpen(false)}
           ></div>
         )}
