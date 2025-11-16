@@ -57,7 +57,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
         <div className="flex justify-center w-full mt-auto mb-4">
           <div 
             onClick={() => window.open("https://x.com/SujitInweb", "_blank")} 
-            className="h-12 w-12 p-1 mx-4 bg-white/50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-white/80 transition"
+            className="md:h-12 md:w-12 xl:h-12 xl:w-12 h-10 w-10 p-1 mx-4 bg-white/50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-white/80 transition"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -70,7 +70,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
           </div>
           <button 
             onClick={() => window.open("https://github.com/SujitInWeb/Type.io", "_blank")} 
-            className="h-12 w-12 p-1 mx-4 bg-white/50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-white/80 transition"
+            className="md:h-12 md:w-12 xl:h-12 xl:w-12 h-10 w-10 p-1 mx-4 bg-white/50 flex justify-center items-center rounded-lg cursor-pointer hover:bg-white/80 transition"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 

@@ -105,7 +105,7 @@ export default function Infinite() {
   return (
     <>
       <div className="h-screen bg-[#000000] w-full text-white p-4 m-0 flex justify-around flex-col items-center">
-          <div className="calculator  text-xl  mt-12 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border-1 ">
+          <div className="calculator  text-xl  mt-10 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border-1 ">
             <p className="typo lg:text-lg md:text-xl text-sm text-white">Typo : {typoCount}</p>
             <button onClick={newGame} className="lg:px-3.5 px-2.5 py-1.5 lg:text-lg md:text-xl text-sm text-[#000] lg:py-2  bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
