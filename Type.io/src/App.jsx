@@ -21,13 +21,13 @@ export default function App() {
           {/* Mobile menu button - only visible on small screens */}
           <button 
             onClick={() => setIsSidebarOpen(true)}
-            className="lg:hidden mb-9 fixed top-4 left-4 z-20 bg-white/50 hover:bg-white/80 p-3 h-12 w-12 rounded-lg backdrop-blur-sm transition duration-280"
+            className="lg:hidden fixed top-4 left-4 z-20 bg-white/50 hover:bg-white/80 p-2.75 h-10 w-10 rounded-lg backdrop-blur-sm transition duration-280"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              viewBox="0 0 24 24" 
+              viewBox="0 0 23 23" 
               fill="currentColor"
-              className="w-6 h-6 text-[#0D1117]"
+              className="w-4.5 h-4.5 text-[#0D1117]"
             >
               <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"/>
             </svg>
