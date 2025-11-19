@@ -41,7 +41,7 @@ export default function Sidebar({ setActiveMode, isOpen, setIsOpen }) {
             setIsOpen(false);
           }}
         >
-          Infinite Mode
+          ∞ Infinite Mode
         </button>
         
         <button 
