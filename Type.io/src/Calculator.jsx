@@ -165,7 +165,7 @@ export default function Calculator() {
   }
   return (
     <>
-      <div className="h-screen bg-[#000000] text-white p-4 m-0 flex justify-around flex-col items-center">
+      <div className="h-screen bg-[#000000] dark:bg-white text-white p-4 m-0 flex justify-around flex-col items-center">
           <div className="calculator  text-xl  mt-10 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border-1 ">
             <p className="typo lg:text-lg md:text-xl text-sm text-white">Typo : {typoCount}</p>
             <p className=" text-white lg:text-lg md:text-xl text-sm font-[Roboto]">Time: {timeLeft}s</p>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import InfiniteMode from "./Infinite";
 import CalculatorMode from "./Calculator";
@@ -6,15 +6,30 @@ import CalculatorMode from "./Calculator";
 export default function App() {
   const [activeMode, setActiveMode] = useState("infinite");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    if(isDarkMode){
+      document.documentElement.classList.add('dark');
+    }else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   return (
     <>
-      <div className="flex flex-col bg-[#000000] overflow-hidden md:flex-row min-h-screen relative">
+      <div className="flex flex-col bg-[#000000] dark:bg-white overflow-hidden md:flex-row min-h-screen relative">
         {/* Sidebar controls mode switching */}
         <Sidebar 
           setActiveMode={setActiveMode}
           isOpen={isSidebarOpen}
           setIsOpen={setIsSidebarOpen}
+          toggleTheme= {toggleTheme}
+          isDarkMode={isDarkMode}
         />
 
         <main className="flex-1 h-screen relative">
