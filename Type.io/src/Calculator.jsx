@@ -165,11 +165,11 @@ export default function Calculator() {
   }
   return (
     <>
-      <div className="h-screen bg-[#000000] dark:bg-white text-white p-4 m-0 flex justify-around flex-col items-center">
-          <div className="calculator  text-xl  mt-10 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border-1 ">
+      <div className="h-screen bg-black dark:bg-white text-white p-4 m-0 flex justify-around flex-col items-center">
+          <div className="calculator  text-xl  mt-10 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border ">
             <p className="typo lg:text-lg md:text-xl text-sm text-white">Typo : {typoCount}</p>
             <p className=" text-white lg:text-lg md:text-xl text-sm font-[Roboto]">Time: {timeLeft}s</p>
-            <button onClick={newGame} className="px-3.5 lg:text-lg md:text-xl text-sm text-[#000] py-2  bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
+            <button onClick={newGame} className="px-3.5 lg:text-lg md:text-xl text-sm text-black py-2  bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
           {isGameOver ? (
             <div className="relative flex justify-center items-center flex-col lg:p-10  w-full  rounded-lg ">
@@ -179,17 +179,17 @@ export default function Calculator() {
                 <p className="text-xl text-gray-400">Words Per Minute</p>
                 <p className="text-md text-gray-500 mt-4">Errors: {typoCount}</p>
               </div>
-              <button onClick={newGame} className="text-[#000] px-6 py-4 text-lg bg-white/50 hover:bg-white font-[Roboto] rounded-lg cursor-pointer transition duration-280">
+              <button onClick={newGame} className="text-black px-6 py-4 text-lg bg-white/50 hover:bg-white font-[Roboto] rounded-lg cursor-pointer transition duration-280">
                   Try Again
               </button>
-              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
             </div>
           ) : (
             <div className="paragraph relative flex justify-center flex-wrap  lg:p-10  w-full  rounded-lg  ">
               <p ref={textRef} className="txt lg:text-2xl md:text-xl text-lg w-full md:w-3/4 xl:w-3/4 p-5 relative z-0 md:p-10 lg:p-10 font-[Electrolize] text-center lg:w-full  h-80 overflow-x-hidden overflow-y-auto ">
                 {renderText()}
               </p>
-              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
             </div>
           )}
       </div>

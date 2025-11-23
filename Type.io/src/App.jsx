@@ -6,7 +6,7 @@ import CalculatorMode from "./Calculator";
 export default function App() {
   const [activeMode, setActiveMode] = useState("infinite");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     if(isDarkMode){
@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <div className="flex flex-col bg-[#000000] dark:bg-white overflow-hidden md:flex-row min-h-screen relative">
+      <div className="flex flex-col bg-black dark:bg-white overflow-hidden md:flex-row min-h-screen relative">
         {/* Sidebar controls mode switching */}
         <Sidebar 
           setActiveMode={setActiveMode}
