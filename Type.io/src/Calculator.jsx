@@ -151,10 +151,10 @@ export default function Calculator() {
           className += ' text-[#666666]';
         }
       }else if(index === currentIndex){
-        className += ' bg-[#fff] text-black';
+        className += ' bg-white dark:bg-black dark:text-white text-black';
       }
       else{
-        className +=' text-white';
+        className +=' text-white dark:text-black';
       }
       return(
         <span key={index} className= {className}>
@@ -166,30 +166,30 @@ export default function Calculator() {
   return (
     <>
       <div className="h-screen bg-black dark:bg-white text-white p-4 m-0 flex justify-around flex-col items-center">
-          <div className="calculator  text-xl  mt-10 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border ">
-            <p className="typo lg:text-lg md:text-xl text-sm text-white">Typo : {typoCount}</p>
-            <p className=" text-white lg:text-lg md:text-xl text-sm font-[Roboto]">Time: {timeLeft}s</p>
-            <button onClick={newGame} className="px-3.5 lg:text-lg md:text-xl text-sm text-black py-2  bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
+          <div className="calculator  dark:shadow-lg text-xl  mt-10 border-[#F0F6FC]/20 lg:p-8 p-7 shadow-xl shadow-[#181919] flex  justify-between items-center  bg-[#F0F6FC]/10 backdrop-blur-md w-full lg:h-15 h-9 rounded-lg border ">
+            <p className="typo lg:text-lg md:text-xl text-sm dark:text-black text-white">Typo : {typoCount}</p>
+            <p className="  lg:text-lg md:text-xl text-sm dark:text-black text-white font-[Roboto]">Time: {timeLeft}s</p>
+            <button onClick={newGame} className="lg:px-3.5 px-2.5 py-1.5 border dark:hover:bg-white dark:hover:text-black dark:bg-black dark:text-white lg:text-lg md:text-xl text-sm text-black lg:py-2  bg-white/50 hover:bg-white/80 font-[Roboto] rounded-lg cursor-pointer transition duration-280" >Restart</button>
           </div>
           {isGameOver ? (
             <div className="relative flex justify-center items-center flex-col lg:p-10  w-full  rounded-lg ">
               <h2 className="lg:text-5xl text-4xl font-[Bungee_Spice] text-white">Time's Up!</h2>
               <div className="relative z-0  p-10 font-[Electrolize] text-center text-2xl w-190 overflow-x-hidden overflow-y-auto">
-                <p className="lg:text-6xl text-4xl font-bold text-white mb-2">{wpm} WPM</p>
-                <p className="text-xl text-gray-400">Words Per Minute</p>
-                <p className="text-md text-gray-500 mt-4">Errors: {typoCount}</p>
+                <p className="lg:text-6xl dark:text-black text-4xl font-bold text-white mb-2">{wpm} WPM</p>
+                <p className="text-xl dark:text-black text-gray-400">Words Per Minute</p>
+                <p className="text-md dark:text-black text-gray-500 mt-4">Errors: {typoCount}</p>
               </div>
-              <button onClick={newGame} className="text-black px-6 py-4 text-lg bg-white/50 hover:bg-white font-[Roboto] rounded-lg cursor-pointer transition duration-280">
+              <button onClick={newGame} className="text-black dark:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black dark:hover:border px-6 py-4 text-lg bg-white/50 hover:bg-white font-[Roboto] rounded-lg cursor-pointer transition duration-280">
                   Try Again
               </button>
-              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-black/90 dark:from-white/90 to-transparent z-10 pointer-events-none"></div>
             </div>
           ) : (
             <div className="paragraph relative flex justify-center flex-wrap  lg:p-10  w-full  rounded-lg  ">
               <p ref={textRef} className="txt lg:text-2xl md:text-xl text-lg w-full md:w-3/4 xl:w-3/4 p-5 relative z-0 md:p-10 lg:p-10 font-[Electrolize] text-center lg:w-full  h-80 overflow-x-hidden overflow-y-auto ">
                 {renderText()}
               </p>
-              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-black/90 to-transparent z-10 pointer-events-none "></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-linear-to-t from-black/90 dark:from-white/90 to-transparent z-10 pointer-events-none"></div>
             </div>
           )}
       </div>
