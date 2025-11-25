@@ -7,7 +7,7 @@ A minimal typing speed test app with dark/light mode
 
 ![React](https://img.shields.io/badge/React-19.2.0-blue) ![Tailwind](https://img.shields.io/badge/Tailwind-4.1.17-38B2AC)
 
-[Live Demo](#) • [Report Bug](https://github.com/SujitInWeb/Type.io/issues)
+[Live Demo](https://typeio-ten.vercel.app/) • [Report Bug](https://github.com/SujitInWeb/Type.io/issues)
 
 </div>
 
